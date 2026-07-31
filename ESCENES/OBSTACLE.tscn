@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cx0ev1kquswdl"]
+
+[ext_resource type="Texture2D" uid="uid://bkykecviguan5" path="res://IMATGES/Chromium_T-Rex-obstacle-large-sprite.png" id="1_mi858"]
+[ext_resource type="Script" uid="uid://byp7iwj4me4tl" path="res://SCRIPTS/obstacle.gd" id="1_tvhy1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvhy1"]
+atlas = ExtResource("1_mi858")
+region = Rect2(0, 0, 50, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cbkf"]
+atlas = ExtResource("1_mi858")
+region = Rect2(50, 0, 49, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6mpv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvhy1")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cbkf")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=925924841]
+script = ExtResource("1_tvhy1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=514219600]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_s6mpv")
+animation = &"2"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1589419215]
+polygon = PackedVector2Array(-9, -25, -21, -25, -24, -21, -24, 7, -16, 15, -8, 15, -8, 26, 8, 26, 8, 13, 24, 3, 24, -26, 20, -29, 15, -29, 8, -45, 4, -49, -4, -49, -8, -44)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=309563303]
+position = Vector2(-9, -24)
+polygon = PackedVector2Array(0, -21, 5, -26, 14, -26, 31, -4, 32, 29, 17, 50, 1, 50, 1, 41, -16, 32, -15, 2, -12, -2, -5, -2, -1, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

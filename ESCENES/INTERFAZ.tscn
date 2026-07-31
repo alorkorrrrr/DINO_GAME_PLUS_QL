@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dy7ti4ir2hyuv"]
+
+[ext_resource type="Texture2D" uid="uid://dq8d4q6526qmu" path="res://IMATGES/white background.jpg" id="1_3odup"]
+[ext_resource type="Script" uid="uid://c48fxup5xm1vg" path="res://SCRIPTS/interfaz.gd" id="1_o26sa"]
+[ext_resource type="Texture2D" uid="uid://deubr5xekd0vh" path="res://IMATGES/JUGAR_BUTTON.png" id="2_o26sa"]
+[ext_resource type="Texture2D" uid="uid://d0h0urpv36a4f" path="res://IMATGES/Chrome dino meteor.png" id="4_54jqn"]
+[ext_resource type="Texture2D" uid="uid://copk3ux26cls3" path="res://IMATGES/IA_BUTTON2.png" id="5_j63pr"]
+[ext_resource type="Texture2D" uid="uid://dvew3pk0cskti" path="res://IMATGES/SORTIR_BUTTON2.png" id="6_54jqn"]
+
+[node name="Node2D" type="Node2D" unique_id=179904274]
+position = Vector2(122, 33)
+script = ExtResource("1_o26sa")
+
+[node name="fons" type="Sprite2D" parent="." unique_id=1913310327]
+modulate = Color(0.973535, 0.9735351, 0.973535, 1)
+position = Vector2(452.00003, 300)
+scale = Vector2(1.6820652, 0.5703364)
+texture = ExtResource("1_3odup")
+
+[node name="dino" type="Sprite2D" parent="." unique_id=214880061]
+position = Vector2(102, 413)
+texture = ExtResource("4_54jqn")
+
+[node name="jugar" type="Sprite2D" parent="." unique_id=538681729]
+position = Vector2(435, 170)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_o26sa")
+
+[node name="jugar" type="Button" parent="jugar" unique_id=333184360]
+anchors_preset = -1
+anchor_left = -0.2924731
+anchor_top = -0.2897196
+anchor_right = 0.29677418
+anchor_bottom = 0.28504673
+offset_left = -89.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 38.0
+metadata/_edit_use_anchors_ = true
+
+[node name="IA" type="Sprite2D" parent="." unique_id=884736093]
+texture_filter = 1
+position = Vector2(434.8006, 329.147)
+scale = Vector2(0.4007597, 0.37824985)
+texture = ExtResource("5_j63pr")
+
+[node name="IA_CONFIG" type="Button" parent="IA" unique_id=1371167055]
+offset_left = -264.00012
+offset_top = -122.0014
+offset_right = 262.5
+offset_bottom = 121.22406
+
+[node name="sortir" type="Sprite2D" parent="." unique_id=1761156448]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(434.8, 483)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_54jqn")
+
+[node name="sortir" type="Button" parent="sortir" unique_id=1885126812]
+anchors_preset = -1
+anchor_left = -0.06818182
+anchor_top = -0.07786885
+anchor_right = 0.07007576
+anchor_bottom = 0.08196721
+offset_left = -226.0
+offset_top = -101.0
+offset_right = 226.0
+offset_bottom = 100.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="jugar/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="IA/IA_CONFIG" to="." method="_on_ia_config_pressed"]
+[connection signal="pressed" from="sortir/sortir" to="." method="_on_sortir_pressed"]

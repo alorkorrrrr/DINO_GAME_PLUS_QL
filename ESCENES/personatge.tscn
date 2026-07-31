@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dd6ul52qw0721"]
+
+[ext_resource type="Texture2D" uid="uid://dwoev4vi76u7e" path="res://IMATGES/Google_Trex_Sprite-removebg-preview.png" id="1_41owv"]
+[ext_resource type="Script" uid="uid://dr25b2vunvo5e" path="res://SCRIPTS/personatge.gd" id="1_thstp"]
+[ext_resource type="Texture2D" uid="uid://dq8d4q6526qmu" path="res://IMATGES/white background.jpg" id="2_3ml0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irf3g"]
+atlas = ExtResource("1_41owv")
+region = Rect2(0, 20, 50, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ml0e"]
+atlas = ExtResource("1_41owv")
+region = Rect2(65, 25, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25g5w"]
+atlas = ExtResource("1_41owv")
+region = Rect2(0, 89, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6av6"]
+atlas = ExtResource("1_41owv")
+region = Rect2(50, 89, 50, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1srcs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irf3g")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ml0e")
+}],
+"loop": true,
+"name": &"MORT",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25g5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6av6")
+}],
+"loop": true,
+"name": &"RUN",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1820445025]
+position = Vector2(-0.99999994, 0)
+scale = Vector2(1.6, 1.6)
+script = ExtResource("1_thstp")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=13307178]
+texture_filter = 1
+position = Vector2(20.937498, 50.624996)
+scale = Vector2(0.021229615, 0.009556579)
+texture = ExtResource("2_3ml0e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=186491059]
+texture_filter = 1
+position = Vector2(24, 32)
+sprite_frames = SubResource("SpriteFrames_1srcs")
+animation = &"IDLE"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1545037962]
+position = Vector2(-2.9802322e-08, 0)
+scale = Vector2(0.9999998, 0.9999998)
+polygon = PackedVector2Array(25.624998, 14.999998, 43.749996, 13.124999, 43.124996, 28.124998, 33.749996, 28.124998, 38.124996, 35.624996, 34.374996, 36.874996, 32.499996, 43.124996, 28.124998, 45.624996, 29.374998, 53.749996, 29.374998, 56.249996, 15.624998, 56.249996, 15.624998, 48.124996, 13.749999, 48.124996, 6.8749995, 39.374996, 6.8749995, 26.874998, 25.624998, 28.124998)

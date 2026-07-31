@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d37p63g361any"]
+
+[ext_resource type="Script" uid="uid://bv301ura5cp50" path="res://SCRIPTS/terrapunts.gd" id="1_tt4b3"]
+[ext_resource type="Texture2D" uid="uid://bm3v8lwnsjlnn" path="res://IMATGES/puntsterra.png" id="2_uvk0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbhyg"]
+size = Vector2(12, 41)
+
+[node name="Area2D" type="Area2D" unique_id=1593813119]
+script = ExtResource("1_tt4b3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1176534530]
+position = Vector2(1, 1)
+texture = ExtResource("2_uvk0m")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=986657127]
+position = Vector2(1101, 1)
+texture = ExtResource("2_uvk0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=182559864]
+position = Vector2(-543, 14.5)
+shape = SubResource("RectangleShape2D_pbhyg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

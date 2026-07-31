@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b5a6pwvhac4p2"]
+
+[ext_resource type="Script" uid="uid://ckl2r5weyuaq6" path="res://SCRIPTS/nuvol.gd" id="1_avrwc"]
+[ext_resource type="Texture2D" uid="uid://d3tc1uhexoo1j" path="res://IMATGES/NUVOL.png" id="2_83w0l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7sey"]
+size = Vector2(52.5, 48)
+
+[node name="Area2D" type="Area2D" unique_id=147207496]
+position = Vector2(32, 4)
+script = ExtResource("1_avrwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1422091748]
+texture_filter = 1
+position = Vector2(1, 1)
+scale = Vector2(0.28403357, 0.40205222)
+texture = ExtResource("2_83w0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1193983460]
+position = Vector2(21.375, 1)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_v7sey")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

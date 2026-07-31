@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bh8jow2mdn4st"]
+
+[ext_resource type="Texture2D" uid="uid://dc8xm72pd83tf" path="res://IMATGES/PTEROFRAMES-removebg-preview.png" id="1_cp2ew"]
+[ext_resource type="Script" uid="uid://c5iqp55pdoglk" path="res://SCRIPTS/ptero.gd" id="1_pji6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amj7g"]
+atlas = ExtResource("1_cp2ew")
+region = Rect2(30, 0, 162, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peh46"]
+atlas = ExtResource("1_cp2ew")
+region = Rect2(192, 0, 162, 162)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ae155"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amj7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peh46")
+}],
+"loop": true,
+"name": &"FLYING",
+"speed": 1.0
+}]
+
+[node name="PTERO" type="Area2D" unique_id=1761650124]
+script = ExtResource("1_pji6g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1454649892]
+sprite_frames = SubResource("SpriteFrames_ae155")
+animation = &"FLYING"
+frame_progress = 0.164481
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1543563432]
+polygon = PackedVector2Array(-9, 10, -28, 10, -28, -8, -41, -18, -78, -19, -50, -47, -42, -46, -35, -24, 3, -22, 46, -8, 23, 10, -11, 10)

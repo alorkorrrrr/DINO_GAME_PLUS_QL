@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cmovojgivmxec"]
+
+[ext_resource type="Script" uid="uid://d2e0notrkq4in" path="res://SCRIPTS/principal_mapa.gd" id="1_fo323"]
+[ext_resource type="Texture2D" uid="uid://dq8d4q6526qmu" path="res://IMATGES/white background.jpg" id="2_xkq8v"]
+[ext_resource type="PackedScene" uid="uid://dd6ul52qw0721" path="res://ESCENES/personatge.tscn" id="3_rf5tb"]
+[ext_resource type="Texture2D" uid="uid://brpeg3l115bck" path="res://IMATGES/TERRA.png" id="3_xkq8v"]
+[ext_resource type="Script" uid="uid://bxaw4wmrwptvb" path="res://SCRIPTS/canvas_group.gd" id="6_sdf1i"]
+[ext_resource type="PackedScene" uid="uid://clo00toplnh2q" path="res://ESCENES/IA.tscn" id="7_jqwed"]
+[ext_resource type="FontFile" uid="uid://bv1heqkhhf00w" path="res://font/Minecraft.ttf" id="7_ry44y"]
+[ext_resource type="PackedScene" uid="uid://cx0ev1kquswdl" path="res://ESCENES/OBSTACLE.tscn" id="8_ofkv3"]
+[ext_resource type="PackedScene" uid="uid://d37p63g361any" path="res://ESCENES/TERRA_PUNTS.tscn" id="8_sqrbb"]
+[ext_resource type="Script" uid="uid://bcwxadudwrhna" path="res://SCRIPTS/spawn_nuvols.gd" id="9_yf5fs"]
+[ext_resource type="PackedScene" uid="uid://b5a6pwvhac4p2" path="res://ESCENES/NUVOL.tscn" id="10_fi68g"]
+[ext_resource type="Script" uid="uid://bxtx8me8q6gmr" path="res://SCRIPTS/spawn_obstacles.gd" id="11_jqwed"]
+[ext_resource type="Script" uid="uid://di4edtccg1vgx" path="res://SCRIPTS/spawn_pteros.gd" id="12_ti668"]
+[ext_resource type="PackedScene" uid="uid://bh8jow2mdn4st" path="res://ESCENES/ptero.tscn" id="13_u4vgr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acmfi"]
+size = Vector2(1754, 192.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ofkv3"]
+a = Vector2(0.5, 0)
+b = Vector2(0.5, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofkv3"]
+size = Vector2(65, 488)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofkv3"]
+font = ExtResource("7_ry44y")
+font_color = Color(0, 0, 0, 1)
+
+[node name="JOC" type="Node2D" unique_id=552617144]
+position = Vector2(-2, 117)
+script = ExtResource("1_fo323")
+
+[node name="FONS" type="Sprite2D" parent="." unique_id=1106973243]
+visibility_layer = 8
+position = Vector2(1006.49994, 390.75)
+scale = Vector2(4.39538, 1.1892712)
+texture = ExtResource("2_xkq8v")
+
+[node name="TERRA" type="StaticBody2D" parent="." unique_id=1117048964]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TERRA" unique_id=850816548]
+position = Vector2(878, 496.25)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_acmfi")
+
+[node name="BARRA" type="Sprite2D" parent="." unique_id=1916557901]
+visibility_layer = 5
+texture_filter = 1
+position = Vector2(885.5, 540.5)
+scale = Vector2(1.1169405, 0.89181286)
+texture = ExtResource("3_xkq8v")
+
+[node name="eliminador" type="Area2D" parent="." unique_id=1237284835]
+position = Vector2(2, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="eliminador" unique_id=973186888]
+position = Vector2(-1091, 450)
+shape = SubResource("SegmentShape2D_ofkv3")
+
+[node name="eliminador2" type="Area2D" parent="." unique_id=980795052]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="eliminador2" unique_id=274382480]
+position = Vector2(-179.5, 138)
+shape = SubResource("RectangleShape2D_ofkv3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1459078461]
+position = Vector2(482, 260)
+zoom = Vector2(1.2, 1.2)
+
+[node name="TERRAPUNTS" parent="." unique_id=1593813119 instance=ExtResource("8_sqrbb")]
+position = Vector2(550, 431)
+
+[node name="SPAWN_NUVOLS" type="Node2D" parent="." unique_id=1996875767]
+position = Vector2(1006.49994, 390.75)
+script = ExtResource("9_yf5fs")
+escena_nuvol = ExtResource("10_fi68g")
+
+[node name="Timer" type="Timer" parent="SPAWN_NUVOLS" unique_id=347516302]
+wait_time = 17.0
+autostart = true
+
+[node name="dino" parent="." unique_id=1820445025 instance=ExtResource("3_rf5tb")]
+position = Vector2(47, 302)
+
+[node name="dino_IA" parent="." unique_id=1383267268 node_paths=PackedStringArray("obstacle_spawn") instance=ExtResource("7_jqwed")]
+position = Vector2(86, 353)
+scale = Vector2(1.6, 1.6)
+obstacle_spawn = NodePath("../SPAWN_OBSTACLES")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=188146204]
+script = ExtResource("6_sdf1i")
+
+[node name="PUNTUACIO" type="Label" parent="CanvasGroup" unique_id=1759662274]
+offset_left = 739.0
+offset_top = 5.0
+offset_right = 819.0
+offset_bottom = 64.0
+text = "0"
+label_settings = SubResource("LabelSettings_ofkv3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasGroup" unique_id=1640386383]
+wait_time = 0.05
+
+[node name="SPAWN_OBSTACLES" type="Node2D" parent="." unique_id=284290617]
+position = Vector2(1150, 360)
+script = ExtResource("11_jqwed")
+escena_obstacle = ExtResource("8_ofkv3")
+
+[node name="Timer" type="Timer" parent="SPAWN_OBSTACLES" unique_id=1613321724]
+wait_time = 2.0
+autostart = true
+
+[node name="SPAWN_PTEROS" type="Node2D" parent="." unique_id=359081614]
+position = Vector2(1172, 214)
+script = ExtResource("12_ti668")
+escena_ptero = ExtResource("13_u4vgr")
+
+[node name="Timer" type="Timer" parent="SPAWN_PTEROS" unique_id=916382909]
+wait_time = 11.0
+
+[connection signal="timeout" from="SPAWN_NUVOLS/Timer" to="SPAWN_NUVOLS" method="_on_timer_timeout"]
+[connection signal="timeout" from="CanvasGroup/Timer" to="CanvasGroup" method="_on_timer_timeout"]
+[connection signal="timeout" from="SPAWN_OBSTACLES/Timer" to="SPAWN_OBSTACLES" method="_on_timer_timeout"]
+[connection signal="timeout" from="SPAWN_PTEROS/Timer" to="." method="_on_timer_timeout"]
