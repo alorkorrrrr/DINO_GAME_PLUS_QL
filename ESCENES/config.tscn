@@ -14,6 +14,14 @@ font_color = Color(0, 0, 0, 1)
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_p8eys"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jk8x7"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
 [node name="CONFIG" type="Node2D" unique_id=1240317090]
 script = ExtResource("1_fpdhm")
 
@@ -32,7 +40,7 @@ position = Vector2(583, 633.5)
 scale = Vector2(1.0854546, 1.5441177)
 texture = ExtResource("3_fpdhm")
 
-[node name="Label" type="Label" parent="." unique_id=357747073]
+[node name="Label_Pob" type="Label" parent="." unique_id=357747073]
 texture_filter = 1
 offset_left = 72.0
 offset_top = 67.0
@@ -41,15 +49,16 @@ offset_bottom = 120.0
 text = "POBLACIO:"
 label_settings = SubResource("LabelSettings_35b1m")
 
-[node name="TextEdit" type="TextEdit" parent="Label" unique_id=1182504166]
+[node name="TextEdit" type="TextEdit" parent="Label_Pob" unique_id=1182504166]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 6.0
 offset_right = 248.0
 offset_bottom = 43.0
-placeholder_text = "0"
+text = "1"
+placeholder_text = "1"
 
-[node name="Label4" type="Label" parent="." unique_id=336812977]
+[node name="Label_Vel" type="Label" parent="." unique_id=336812977]
 offset_left = 72.0
 offset_top = 150.0
 offset_right = 240.0
@@ -57,73 +66,82 @@ offset_bottom = 198.0
 text = "VELOCITAT:"
 label_settings = SubResource("LabelSettings_fpdhm")
 
-[node name="TextEdit" type="TextEdit" parent="Label4" unique_id=24050827]
+[node name="TextEdit" type="TextEdit" parent="Label_Vel" unique_id=24050827]
 layout_mode = 0
 offset_left = 175.0
 offset_top = 5.0
 offset_right = 257.0
 offset_bottom = 42.0
-placeholder_text = "0"
+text = "1"
+placeholder_text = "1"
 
-[node name="Label5" type="Label" parent="." unique_id=952866199]
-offset_left = 72.0
-offset_top = 233.0
-offset_right = 240.0
-offset_bottom = 281.0
+[node name="Label_Alfa" type="Label" parent="." unique_id=952866199]
+offset_left = 114.0
+offset_top = 234.0
+offset_right = 282.0
+offset_bottom = 282.0
+text = "\"ALFA\":"
 label_settings = SubResource("LabelSettings_fpdhm")
 
-[node name="TextEdit" type="TextEdit" parent="Label5" unique_id=2052035832]
+[node name="TextEdit" type="TextEdit" parent="Label_Alfa" unique_id=2052035832]
 layout_mode = 0
-offset_left = 165.0
-offset_top = 8.0
+offset_left = 119.0
+offset_top = 5.0
+offset_right = 201.0
+offset_bottom = 42.0
+text = "0.05"
+placeholder_text = "0.05"
+
+[node name="Label_Gamma" type="Label" parent="." unique_id=693751846]
+offset_left = 79.0
+offset_top = 287.0
 offset_right = 247.0
-offset_bottom = 45.0
-placeholder_text = "0"
-
-[node name="Label6" type="Label" parent="." unique_id=693751846]
-offset_left = 72.0
-offset_top = 316.0
-offset_right = 240.0
-offset_bottom = 364.0
+offset_bottom = 335.0
+text = "\"GAMMA\":"
 label_settings = SubResource("LabelSettings_fpdhm")
 
-[node name="TextEdit" type="TextEdit" parent="Label6" unique_id=601319404]
+[node name="TextEdit" type="TextEdit" parent="Label_Gamma" unique_id=601319404]
 layout_mode = 0
-offset_left = 166.0
-offset_top = -29.0
-offset_right = 248.0
-offset_bottom = 8.0
-placeholder_text = "0"
+offset_left = 157.0
+offset_top = 6.0
+offset_right = 239.0
+offset_bottom = 43.0
+text = "0.95"
+placeholder_text = "0.95"
 
-[node name="Label7" type="Label" parent="." unique_id=1542271276]
-offset_left = 72.0
-offset_top = 399.0
-offset_right = 240.0
-offset_bottom = 447.0
+[node name="Label_Epsi" type="Label" parent="." unique_id=1542271276]
+offset_left = 53.0
+offset_top = 426.0
+offset_right = 221.0
+offset_bottom = 474.0
+text = "\"EPSILON\":"
 label_settings = SubResource("LabelSettings_fpdhm")
 
-[node name="TextEdit" type="TextEdit" parent="Label7" unique_id=2118311035]
+[node name="TextEdit" type="TextEdit" parent="Label_Epsi" unique_id=2118311035]
 layout_mode = 0
-offset_left = 165.0
-offset_top = -60.0
-offset_right = 247.0
-offset_bottom = -23.0
-placeholder_text = "0"
+offset_left = 168.0
+offset_top = 7.0
+offset_right = 250.0
+offset_bottom = 44.0
+text = "0.99"
+placeholder_text = "0.99"
 
-[node name="Label8" type="Label" parent="." unique_id=63985405]
-offset_left = 72.0
-offset_top = 482.0
-offset_right = 240.0
-offset_bottom = 530.0
+[node name="Label_Deca" type="Label" parent="." unique_id=1860603817]
+offset_left = 61.0
+offset_top = 472.0
+offset_right = 229.0
+offset_bottom = 520.0
+text = "DECADÈNCIA:"
 label_settings = SubResource("LabelSettings_fpdhm")
 
-[node name="TextEdit" type="TextEdit" parent="Label8" unique_id=1472451820]
+[node name="TextEdit" type="TextEdit" parent="Label_Deca" unique_id=952872185]
 layout_mode = 0
-offset_left = 166.0
-offset_top = -100.0
-offset_right = 248.0
-offset_bottom = -63.0
-placeholder_text = "0"
+offset_left = 205.0
+offset_top = 7.0
+offset_right = 287.0
+offset_bottom = 44.0
+text = "0.999"
+placeholder_text = "0.999"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=997469221]
 position = Vector2(1031, 491.99997)
@@ -137,4 +155,38 @@ offset_top = -119.404236
 offset_right = 258.82373
 offset_bottom = 119.4043
 
+[node name="GUARDAR" type="Label" parent="." unique_id=796620618]
+offset_left = 485.0
+offset_top = 75.0
+offset_right = 797.0
+offset_bottom = 117.0
+text = "GUARDAR \"Q_TABLE\":"
+label_settings = SubResource("LabelSettings_p8eys")
+
+[node name="save" type="Button" parent="GUARDAR" unique_id=2125556533]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.19000001
+offset_left = 328.0
+offset_top = 11.0
+offset_right = 358.0
+offset_bottom = 29.02
+
+[node name="CARREGAR" type="Label" parent="." unique_id=1209870360]
+offset_left = 476.0
+offset_top = 139.0
+offset_right = 799.0
+offset_bottom = 181.0
+text = "CARREGAR \"Q_TABLE\":"
+label_settings = SubResource("LabelSettings_jk8x7")
+
+[node name="load" type="Button" parent="CARREGAR" unique_id=1566983264]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 10.0
+offset_right = 363.0
+offset_bottom = 38.0
+
 [connection signal="pressed" from="Sprite2D/tornar" to="." method="_on_tornar_pressed"]
+[connection signal="pressed" from="GUARDAR/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="CARREGAR/load" to="." method="_on_load_pressed"]

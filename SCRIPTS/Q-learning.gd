@@ -4,11 +4,11 @@ class_name QLearning
 var q_table = {} 
 #la "taula Q"
 
-var alfa = 0.05
-var gamma = 0.95
-var epsi = 0.99
-var dec_epsi = 0.999
-var epsi_minim = 0.0005
+var alfa = Global.alpha
+var gamma2 = Global.gamma
+var epsi = Global.epsil
+var dec_epsi = Global.deca
+var epsi_minim = 0.001
 
 const NOSALT = 0
 const SALT = 1
@@ -26,11 +26,11 @@ func escull_accio(estat):
 	
 	var accio
 	
-	if randf() < epsi:
+	if randf() < Global.epsil:
 		accio = randi() % 2
 		return accio
 
-	if q_table[estat][NOSALT] > q_table[estat][SALT]:
+	if q_table[estat][NOSALT] >= q_table[estat][SALT]:
 		accio = NOSALT
 	else:
 		accio =  SALT
@@ -51,15 +51,27 @@ func apren(estat, accio, recompensa, seg_estat):
 	var q_actual = q_table[estat][accio]
 	var millor_q_seg = max(q_table[seg_estat][NOSALT], q_table[seg_estat][SALT])
 	
-	q_table[estat][accio] = q_actual + alfa * (recompensa + gamma*millor_q_seg - q_actual)
+	q_table[estat][accio] = q_actual + Global.alpha * (recompensa + Global.gamma*millor_q_seg - q_actual)
 	
 	#print(epsi)
 	#print(estat,"->", q_table[estat])
 	
-	epsi = max(epsi_minim, epsi * dec_epsi)
+	Global.epsil = max(epsi_minim, Global.epsil * Global.deca)
 	#print(epsi)
+
 func guarda():
-	pass
-	
+	var fitxer = FileAccess.open("user://q_table.json", FileAccess.WRITE)
+	fitxer.store_string(JSON.stringify(q_table))
+	fitxer.close()
+
 func carrega():
-	pass
+	var fitxer = FileAccess.open("user://q_table.json", FileAccess.READ)
+	
+	if fitxer == null:
+		return
+	
+	var dades= JSON.parse_string(fitxer.get_as_text())
+	fitxer.close()
+	
+	if dades is Dictionary:
+		q_table = dades

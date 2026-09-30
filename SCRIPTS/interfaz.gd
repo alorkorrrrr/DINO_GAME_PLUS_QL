@@ -11,4 +11,5 @@ func _on_sortir_pressed() -> void:
 	get_tree().quit()
 
 func _on_ia_config_pressed() -> void:
+	Global.enconfig = true
 	get_tree().change_scene_to_file("res://ESCENES//config.tscn")
