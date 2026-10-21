@@ -24,11 +24,11 @@ func reset():
 	if reseted:
 		return
 	reseted = true
-
+	Global.MORT = false
 	if Global.punts > Entrenar.highscore:
 		Entrenar.highscore = Global.punts
 	print("Highscore: ",Entrenar.highscore)
-	
+	Global.simulacions += 1
 	get_tree().change_scene_to_file("res://ESCENES/PRINCIPAL_MAPA.tscn")
 	
 	Global.punts = 0

@@ -1,12 +1,14 @@
 extends CanvasGroup
 
 @onready var puntuacio = $PUNTUACIO
+@onready var puntsmax = $MAX
 
 func _ready() -> void:
 	puntuacio.text = "Punts: 0000" + str(Global.punts)
-	$Timer.start()
-	
+	puntsmax.text = "HIGHSCORE: " + str(Entrenar.highscore)
 
+func _process(delta: float) -> void:
+	actualitzaPunts()
 func actualitzaPunts():
 	if Global.MORT == false:
 		Global.punts += 1
@@ -20,6 +22,3 @@ func actualitzaPunts():
 			puntuacio.text = "Punts: 000" + str(Global.punts)
 		else:
 			puntuacio.text = "Punts: 0000" + str(Global.punts)
-func _on_timer_timeout() -> void:
-	if Global.MORT == false:
-		actualitzaPunts()

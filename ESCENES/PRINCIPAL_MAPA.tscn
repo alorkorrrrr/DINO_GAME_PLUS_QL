@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d37p63g361any" path="res://ESCENES/TERRA_PUNTS.tscn" id="8_sqrbb"]
 [ext_resource type="Script" uid="uid://bcwxadudwrhna" path="res://SCRIPTS/spawn_nuvols.gd" id="9_yf5fs"]
 [ext_resource type="PackedScene" uid="uid://b5a6pwvhac4p2" path="res://ESCENES/NUVOL.tscn" id="10_fi68g"]
+[ext_resource type="Script" uid="uid://da11c0hl70li6" path="res://ESCENES/spawn_ias.gd" id="11_05t6s"]
 [ext_resource type="Script" uid="uid://bxtx8me8q6gmr" path="res://SCRIPTS/spawn_obstacles.gd" id="11_jqwed"]
 [ext_resource type="Script" uid="uid://di4edtccg1vgx" path="res://SCRIPTS/spawn_pteros.gd" id="12_ti668"]
 [ext_resource type="PackedScene" uid="uid://bh8jow2mdn4st" path="res://ESCENES/ptero.tscn" id="13_u4vgr"]
@@ -102,8 +103,19 @@ text = "0"
 label_settings = SubResource("LabelSettings_ofkv3")
 metadata/_edit_use_anchors_ = true
 
-[node name="Timer" type="Timer" parent="CanvasGroup" unique_id=1640386383]
-wait_time = 0.05
+[node name="MAX" type="Label" parent="CanvasGroup" unique_id=678705237]
+offset_left = 739.0
+offset_top = 26.0
+offset_right = 819.0
+offset_bottom = 85.0
+text = "0"
+label_settings = SubResource("LabelSettings_ofkv3")
+metadata/_edit_use_anchors_ = true
+
+[node name="SPAWN_IAS" type="Node2D" parent="." unique_id=1598801339]
+position = Vector2(68, 353)
+script = ExtResource("11_05t6s")
+escena_IA = ExtResource("7_jqwed")
 
 [node name="SPAWN_OBSTACLES" type="Node2D" parent="." unique_id=284290617]
 position = Vector2(1150, 360)
@@ -123,6 +135,5 @@ escena_ptero = ExtResource("13_u4vgr")
 wait_time = 11.0
 
 [connection signal="timeout" from="SPAWN_NUVOLS/Timer" to="SPAWN_NUVOLS" method="_on_timer_timeout"]
-[connection signal="timeout" from="CanvasGroup/Timer" to="CanvasGroup" method="_on_timer_timeout"]
 [connection signal="timeout" from="SPAWN_OBSTACLES/Timer" to="SPAWN_OBSTACLES" method="_on_timer_timeout"]
 [connection signal="timeout" from="SPAWN_PTEROS/Timer" to="." method="_on_timer_timeout"]

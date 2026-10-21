@@ -74,6 +74,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and accio_actual == QLearning.SALT:
 		salt()
 	move_and_slide()
+	
 
 
 func salt():
@@ -93,9 +94,15 @@ func rep_estat():
 	
 	return "%d,%d,%d" % [
 		distancia_ces,
-		vel_ces,
+		Global.velocitat,#vel_ces,
 		int(is_on_floor())
 	]
+	#pots canviar vel_ces amb Global.velocitat
 
 func obstacle_passat():
-	Entrenar.ment.apren(estat_pre, accio_pre, 20, rep_estat())
+	Entrenar.ment.apren(estat_pre, accio_pre, Global.reco, rep_estat())
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if Global.poblacio > 1:
+		queue_free()

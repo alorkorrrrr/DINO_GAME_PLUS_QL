@@ -4,4 +4,5 @@ var ment = QLearning.new()
 var highscore = 0
 
 func _ready():
-	ment.carrega()
+	#ment.carrega()
+	pass

@@ -69,3 +69,12 @@ animation = &"IDLE"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1215762726]
 polygon = PackedVector2Array(3, -5, 3, -19, 20, -19, 23, -16, 22, -9, 18, -5, 11, -5, 11, 0, 15, 3, 12, 4, 11, 3, 10, 9, 4, 16, 4, 21, 6, 22, 6, 24, -8, 24, -8, 16, -17, 7, -17, -4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1982055767]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1223253493]
+position = Vector2(0, 3)
+scale = Vector2(0.6, 0.6)
+polygon = PackedVector2Array(3, -5, 3, -19, 20, -19, 23, -16, 22, -9, 18, -5, 11, -5, 11, 0, 15, 3, 12, 4, 11, 3, 10, 9, 4, 16, 4, 21, 6, 22, 6, 24, -8, 24, -8, 16, -17, 7, -17, -4)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

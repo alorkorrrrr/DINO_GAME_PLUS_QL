@@ -2,6 +2,7 @@ extends Node
 
 var MORT = false
 var punts = 0
+var puntsmax = 0
 var JUGADOR : CharacterBody2D
 var PTERO = false
 var IA = true
@@ -13,3 +14,6 @@ var poblacio = 1
 var epsil = 0.99
 var deca = 0.999
 var enconfig = false
+var ies_mortes = 0
+var reco = 20
+var simulacions = 0

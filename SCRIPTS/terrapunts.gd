@@ -1,6 +1,6 @@
 extends Area2D
 
-var velocitat = 400
+var velocitat = 400 * Global.velocitat
 var posicio = 550
 
 func _process(delta: float) -> void:

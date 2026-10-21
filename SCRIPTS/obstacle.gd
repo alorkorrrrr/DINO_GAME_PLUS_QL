@@ -34,11 +34,12 @@ func _process(delta: float) -> void:
 		if not pasat and position.x < -1070:
 			pasat = true
 			Global.JUGADOR.obstacle_passat()
+
 func _on_area_entered(area: Area2D) -> void:
-	destruir() 
+	destruir()
 
 func _on_body_entered(body: Node2D) -> void:
-	Global.MORT = true
+	Global.ies_mortes+=1
 
 func destruir():
 	spawner.obstacles.erase(self)

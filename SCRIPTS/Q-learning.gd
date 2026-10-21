@@ -60,9 +60,19 @@ func apren(estat, accio, recompensa, seg_estat):
 	#print(epsi)
 
 func guarda():
+	var numSims = "Simulacions: "+str(Global.simulacions)
+	var puntmax = " Highscore: "+str(Entrenar.highscore)
+	#posar les altres variables
+	
 	var fitxer = FileAccess.open("user://q_table.json", FileAccess.WRITE)
 	fitxer.store_string(JSON.stringify(q_table))
+	
+	var dades = FileAccess.open("user://dades.json", FileAccess.WRITE)
+	dades.store_string(JSON.stringify(numSims))
+	dades.store_string(JSON.stringify(puntmax))
+	
 	fitxer.close()
+	dades.close()
 
 func carrega():
 	var fitxer = FileAccess.open("user://q_table.json", FileAccess.READ)
